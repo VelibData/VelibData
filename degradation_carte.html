@@ -1,0 +1,392 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0"/>
+
+<title>Municipales 2014 &agrave; Toulouse - Passion dataviz</title>
+<link rel="shortcut icon" href="http://data.passiondataviz.fr/i/favicon64.ico" TYPE="image/x-icon" />
+<link rel="icon" href="http://cartes.passiondataviz.fr/toulouse2014/capture.jpg" TYPE="image/png" />
+<link rel="image_src" href="http://cartes.passiondataviz.fr/toulouse2014/capture.jpg" TYPE="image/png" />
+<link rel="author" href="https://plus.google.com/101313794478060703082" title="Pierre Breteau" />
+<link rel="me" href="https://plus.google.com/101313794478060703082" title="+Pierre Breteau" />
+<link rel="stylesheet" href="http://data.passiondataviz.fr/js/leaflet.css" />
+<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+<link href="jumbotron.css" rel="stylesheet">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://data.passiondataviz.fr/js/leaflet.js"></script>
+<script type="text/javascript" src="http://data.passiondataviz.fr/js/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://data.passiondataviz.fr/js/Control.TouchHover.js"></script>
+<script type="text/javascript" src="http://cartes.passiondataviz.fr/toulouse2014/js/TileLayer.d3_geoJSON.js"></script>
+<!-- <script type="text/javascript" src="http://cartes.passiondataviz.fr/toulouse2014/toulouse2014.geojson"></script> -->
+<!-- <script type="text/javascript" src="http://matthieuctvt.github.io/data_departBoulot.json"></script>  -->
+<!--<script type="text/javascript" src="http://matthieuctvt.github.io/map2.json"></script>-->
+<script type="text/javascript" src="http://matthieuctvt.github.io/degradation_map.json"></script> 
+
+<!-- ################# STYLE ###################################-->
+<style type="text/css">
+html, body { height: 100% }
+#map { min-height: 75%;max-height: 75%; }
+body {
+    margin: 0;
+    font-family: Dosis; font-size: 12px;
+    overflow: hidden;
+    letter-spacing:-1px;
+
+}
+.leaflet-container {
+    background: #e1e1e3;
+}
+.leaflet-bar {
+border: 1px solid rgba(0,0,0,0.2);
+background-clip: padding-box;
+border-radius: 3px;
+}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom: none;
+	}
+.leaflet-touch .leaflet-bar {
+	border: 1px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	border-radius: 3px;
+	}
+
+.leaflet-popup-content-wrapper {
+padding: 1px;
+text-align: left;
+border-radius: 4px;
+background: #fff;
+box-shadow: 0 1px 2px rgba(0,0,0,0.20);
+}
+.leaflet-popup-tip {
+width: 13px;
+height: 13px;
+padding: 1px;
+margin: -10px auto 0;
+box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+}
+
+.leaflet-bar a.leaflet-control-touchhover-toggle {
+	background-image:url("http://data.passiondataviz.fr/i/empreinte_non.png");
+	background-size: 90% 90%;
+}
+.leaflet-bar a.leaflet-control-touchhover-toggled {
+	background-image:url("http://data.passiondataviz.fr/i/empreinte.png");
+	background-size: 90% 90%;
+}
+.info {
+	padding: 6px 8px;
+	font: 14px/16px Dosis;
+	background: white;
+	background: rgba(255,255,255,0.8);
+	border-radius: 5px;
+    width: 270px;
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 1);
+	background-clip: padding-box;
+	border-radius: 4px;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+.info h4 {
+  font: 16px/18px Dosis;
+  font-weight: bold;
+	margin: 0 0 5px;
+	color: #777;
+}
+
+.legend {
+	text-align: left;
+	line-height: 18px;
+	color: #555;
+    width: 90px;
+    height: 140x ;
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 1);
+	background-clip: padding-box;
+	border-color: #777;
+	border: 1px solid rgba(0,0,0,0.2);
+	border-radius: 4px;
+}
+.legend i {
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-right: 8px;
+	opacity: 0.9;
+}
+
+
+.leaflet-tile-pane {position:relative;z-index:4;}
+.leaflet-overlay-pane {position:relative;z-index:3;}
+.leaflet-marker-pane {z-index: 6;}
+
+path.leaflet-clickable {opacity:1;}
+path { stroke-linejoin; round; stroke-linecap: round;}
+path.road { stroke: #FFF; stroke-opacity:0.5;position:relative;z-index:10;fill:none}
+
+</style>
+<!-- ###########################################################-->
+</head><body>
+
+<!-- ################# LEGEND ##################################-->	
+<div id="map">	  
+	<div style="position:absolute; bottom:3px; left:5px; display:block; border:none; z-index:1000000;"><a href="http://passiondataviz.fr/" target="_top"><img width="35" height="35" src="http://data.passiondataviz.fr/i/coeurcarte.png" style="position:absolute; bottom:3px; left:5px; display:block; width:35px!important; height:35px!important; border:none; outline:none;" alt="Passion dataviz"></a>
+	</div>
+					
+	<div class="info legend leaflet-control" style="position:absolute; bottom:10px; right:10px; display:block; z-index:1000000;width:auto;">
+		<!--
+		Jean-Luc Moudenc (UMP)&nbsp;:<br>
+		<i style="background:#3182bd"></i> 70&nbsp;% et plus<br>
+		<i style="background:#6baed6"></i> 60&nbsp;-&nbsp;70&nbsp;%<br>
+		<i style="background:#bdd7e7"></i> 50&nbsp;-&nbsp;60&nbsp;%<br><br>
+		Pierre Cohen (PS)&nbsp;:<br>
+		<i style="background:#dd3497"></i> 70&nbsp;% et plus<br>
+		<i style="background:#f768a1"></i> 60&nbsp;-&nbsp;70&nbsp;%<br>
+		<i style="background:#fa9fb5"></i> 50&nbsp;-&nbsp;60&nbsp;%<br>
+		-->
+		<!--
+		Légende  : <br>
+		<i style="background:#e6fff5"></i> 9h40 et plus<br>
+		<i style="background:#80aaff"></i> 9h00 - 9h40<br>
+		<i style="background:#004de6"></i> 8h40 - 9h00<br>
+		<i style="background:#002b80"></i> 8h20 - 8h40<br>
+		<i style="background:#00091a"></i> 7h40 - 8h20<br>
+		<i style="background:#660066"></i> Aucun départ visible<br>
+		-->
+		Légende  : Taux de déterioration<br>
+		<i style="background:#f0c0c0"></i> Pas de déterioration<br>
+		<i style="background:#f0a0a0"></i> 1% - 3% <br>
+		<i style="background:#f08080"></i> 3% - 10%<br>
+		<i style="background:#f05050"></i> 10% - 20%<br>
+		<i style="background:#f02020"></i> Plus de 20%<br>
+		                 
+	</div>
+					
+</div>
+<!-- ################################################################################## -->
+
+<!-- ########################  REGLAGE DE LA MAP ##################################### -->
+<!-- Ex : centre init / zoom min et max / couleur en fonction de la valeur / route et batiment -->
+<script>
+
+// On monte la carte, et on centre sur Toulouse
+	var map = L.map('map', { minZoom: 12, maxZoom: 16} );
+	
+	map.setView([48.857807, 2.333033], 12);
+	if (L.Browser.touch) {
+		L.control.touchHover().addTo(map);
+	}
+
+	// La div qui contient les infos quand on passe par dessus un bureau de vote
+	var info = L.control();
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+     this._div.innerHTML =   (props ?
+     
+                              /*'<div style="width:300px;"><span style="font-family:Patua One;font-size:1em;">BUREAU : ' + props.nom + '</span>&nbsp;(' + props.associant + ')<br><span style="color:#08519c;">Jean-Luc Moudenc (UMP)&nbsp;: ' + props.jean_luc_moudenc + '&nbsp;%</span><br><span style="color:#dd3497;">Pierre Cohen (PS)&nbsp;: ' + props.pierre_cohen + '&nbsp%</span></div>'
+                                                                                                                          : '<h4>Passez votre souris au dessus des bureaux de vote</h4>');*/
+                              
+                              '<div style="width:300px;"><span style="font-family:Dosis;font-size:1em;">Quartier : ' + props.nom + '</span>&nbsp;<br><span style="color:#08519c;">Taux de dégradation : ' + props.tauxVelibCasse_string + '</div>'
+                                                                                                                          : "<h4>Passez votre souris au dessus d'un quartier</h4>");
+	};
+	info.addTo(map);
+	
+	// couleur en fonction du score des deux candidats
+	//function getColor(d) {
+	//	return d > 9.99  ? '#e6fff5' :
+	//	       d > 9.65 ? '#e6fff5' : 
+	//	       d > 9.32 ? '#80aaff' : 
+	//	       d > 8.99  ? '#80aaff' :
+	//	       d> 8.65 ? '#004de6' : 
+	//	       d > 8.32 ? '#002b80' :
+	//	       d > 7.99 ? '#00091a' :
+	//	                 '#660066';
+	//}
+	 function getColor(d) {
+		return d > 1  ? '#ff0000' :
+	 	       d > 0.2  ? '#f02020' :
+		       d > 0.1  ? '#f05050' :
+		       d > 0.03  ? '#f08080' :
+		       d > 0.01 ? '#f0a0a0' : 
+		       d > 0 ? '#f0c0c0' : 
+		       d > -1  ? '#f0c0c0' :
+		       '#fff0f0';
+	}
+
+	function style(feature) {
+		return {
+			weight: 0,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 1,
+			fillColor: getColor(feature.properties.tauxVelibCasses)
+		};
+	}
+
+	function highlightFeature(e) {
+		var layer = e.target;
+
+		layer.setStyle({
+			weight: 2,
+			color: '#000',
+			dashArray: '',
+			fillOpacity: 1
+		});
+
+/**		if (!L.Browser.ie && !L.Browser.opera) {
+			layer.bringToFront();
+		}
+**/
+		info.update(layer.feature.properties);
+	}
+
+	var geojson;
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
+
+	geojson = L.geoJson(mun31000, {
+		style: style,
+		onEachFeature: onEachFeature
+	}).addTo(map);
+
+	var legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) {
+
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [0, 20, 30, 40, 50, 60, 70],
+			labels = [],
+			from, to;
+
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.unshift(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&nbsp;-&nbsp;'  + to + '&nbsp;&#37;' : '&nbsp;&#37;&nbsp;et&nbsp;+'));
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+//	legend.addTo(map);
+
+	
+// On ajoute un GeoJSON bidon pour forcer Leaflet.js � cr�er le <svg> dont D3.js a besoin
+
+
+ new L.geoJson({"type": "LineString","coordinates":[[0,0],[0,0]]}).addTo(map);
+
+
+var landColors = {
+  "farm": 0,
+  "meadow": 0,
+  "scrub": 0,
+  "forest": 0,
+  "farmyard": 0,
+  "farmland": 0,
+  "wood": 0,
+  "park": 0,
+  "cemetery": 0,
+  "golf_course": 0,
+  "grass": 0,
+  "nature_reserve": 0,
+  "pitch": 0,
+  "common": 0,
+  "residential": "#f4f4f4",
+  "industrial": "#f4f4f4",
+  "commercial": "#f4f4f4",
+  "retail": "#f4f4f4",
+  "parking": "#f4f4f4",
+  "quarry": "#f4f4f4",
+  "school": "#f4f4f4",
+  "hospital": "#f4f4f4",
+  "college": "#f4f4f4",
+  "university": "#f4f4f4",
+}
+
+
+
+		// Ce sont les zones d'eau chez OSM
+/**	var flotte = new L.TileLayer.d3_geoJSON("http://tile.openstreetmap.us/vectiles-water-areas/{z}/{x}/{y}.json", {
+		  class: "water",
+		  style: ""
+		}).addTo(map);
+**/
+
+// Les routes, glannees chez OSM aussi
+
+var roadSizes = {
+  "highway": "3px",
+  "major_road": "1px",
+  "minor_road": "0px",
+  "rail": "0px",
+  "path": "0px"
+};
+
+var routes = new L.TileLayer.d3_geoJSON("http://vector.mapzen.com/osm/roads/{z}/{x}/{y}.json", {
+  class: "road",
+  style: function(d) { return "stroke-width: " + roadSizes[d.properties.kind]; }
+}).addTo(map);
+
+
+
+/** 
+// Afficher les noms, je ne parviens pas à rendre mes bureaux de votes interactifs avec cette couche-ci.
+var topLayer = new L.tileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.png', {
+		detectRetina:true
+	}).addTo(map);
+**/
+
+</script>
+<!-- ################################################################################## -->
+<!-- ################# GGOGLE ANALYTICS ############################################### -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37412814-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- ################################################################################## -->
+</body></html>

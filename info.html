@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Velibs et quartiers</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    
+    <!-- Sticky footer -->
+    <link href="sticky-footer.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+    <style>
+         body{
+             background:url(/cycle5.jpg) no-repeat center fixed;
+         -webkit-background-size: over; 
+         -moz-background-size: over;
+         -o-background-size: over;
+            backdround-size : over
+            opacity: 0.5;
+         }    
+    </style>
+  </head>
+  <body>
+    <!-- ############### BANDE NOIRE EN HAUT #################################### -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand font accueil" href="index.html"> Accueil </center></a>
+        </div>
+      </div>
+    </nav>
+    <!-- ########################################################################## -->
+    <!-- /container -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="container marketing info">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4 text-accueil">
+            <center><img src="/reveil3.png" height="120" alt="Generic placeholder image"></center>
+            <h3 class="font">Les quartiers qui se lèvent tôt !</h3>
+            <p class="font">On récupère les données d'une «journée-type» d’utilisation des vélibs : date de la journée sélectionnée.  Ensuite, on traite les données en essayant de repérer l’horaire de la "chute" du nombre de vélibs le matin pour chaque station. Une fois cette heure identifiée, on peut alors calculer une heure moyenne de départ pour chaque quartier de Paris. Les quartiers pour lesquels nous n'observons pas une chute du nombre de vélos le matin sont donc considérés comme des quartiers où l'on trouve principalement des lieux de travail.</p>
+            <center><p><a class="btn btn-serieux1" href="horaire.html" role="button">C'est parti !</a></p></center>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-accueil">
+            <center><img src="/biere.png" height="120" alt="Generic placeholder image"></center>
+            <h3 class="font">Qui rentre tôt du boulot ?</h3>
+            <p class="font">On récupère les données d'une «journée-type» d’utilisation des vélibs : date de la journée sélectionnée.  Ensuite, on traite les données en essayant de repérer l’horaire de la "montée" du nombre de vélibs le soir pour chaque station. Une fois cette heure identifiée, on peut alors calculer une heure moyenne de retour pour chaque quartier de Paris. Les quartiers pour lesquels nous n'observons pas une montée du nombre de vélos le soir sont donc considérés comme des quartiers où l'on trouve principalement des lieux de travail.</p>
+            <center><p><a class="btn btn-serieux1" href="horaire.html" role="button">C'est parti !</a></p></center>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-accueil">
+            <center><img  src="/hache.png" height="120" alt="Generic placeholder image"></center>
+            <h3 class="font">Qui casse les Velibs ?</h3>
+            <p class="font">On récupère les données d'une «semaine-type» d’utilisation des vélibs : date de la journée sélectionnée.  Ensuite, on traite les données en calculant la moyenne du nombre de vélibs dégradés pour chaque station. Une fois cette heure identifiée, on peut alors calculer un taux moyen de dégradation pour chaque quartier de Paris.</p>
+            <center><p><a class="btn btn-serieux1" href="degradation.html" role="button">C'est parti !</a></p></center>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+        <p>&copy; 2016 Data-Velib</p>
+        </div>
+    </footer>
+</div><!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

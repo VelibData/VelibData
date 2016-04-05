@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+   
+.font{
+    font-family: 'Dosis', cursive;
+    color:black;
+    text-shadow: #ffffff 0.7px 0.7px, #ffffff -0.7px 0.7px, #ffffff -0.7px -0.7px, #ffffff 0.7px -0.7px;
+    text-align:justify
+         }
+         
+.accueil{
+    font-family: 'Dosis', cursive;
+    color:white;
+    text-shadow: #000000 0.5px 0.5px, #000000 -0.5px 0.5px, #000000 -0.5px -0.5px, #000000 0.5px -0.5px;
+         }
+         
+.jumbotron {
+    margin-bottom: 0px;
+    height: 320px;
+    color: white; /* Le texte sera affiché en blanc */
+    margin-top: 2cm;
+    margin-left: 2cm;
+    background : transparent;
+    width:200px;
+}
+
+.btn-serieux1{
+    color :#FFFFFF;
+    background-color:#AA1122;
+    font-family: 'Dosis', cursive;
+    font-size: medium;
+    
+}
+
+.btn-serieux2{
+    color :#AA1122;
+    background-color:#FFFFFF;
+    font-family: 'Dosis', cursive;
+    font-size: large;
+}
+
+.info{
+   margin-top: 10cm;
+}

@@ -1,0 +1,125 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @clerousset
+
+4
+0
+
+    0
+
+MatthieuCtvt/MatthieuCtvt.github.io
+Code
+Issues 0
+Pull requests 0
+Wiki
+Pulse
+Graphs
+MatthieuCtvt.github.io/favorise.html
+0ee7be9 25 days ago
+@SimonBunel SimonBunel Update favorise.html
+1254 lines (1244 sloc) 268 KB
+
+
+<!doctype html>
+<html>
+        <head>
+                <title>Des quartiers favorisés ?</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+                <style>
+                        html { height: 100% }
+                        body { height: 100%; margin: 0; padding: 0 }
+                        #map { 
+                                width: 1600px;
+                                height: 960px; 
+                        }
+                </style>
+
+                <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+                <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+                </head>
+        <body>
+                <div id="map"></div>
+                <script type="text/javascript">
+                        var map = L.map('map').setView([48.856578, 2.351828], 13);
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>' }).addTo(map);
+var marker = L.marker([48.84698907,2.4101454966]).addTo(map); marker.bindPopup("12020 - COURS DE VINCENNES - BD SOULT") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8443731937,2.4109724517]).addTo(map); marker.bindPopup("12021 - COURTELINE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8355450436,2.4074555159]).addTo(map); marker.bindPopup("12032 - PORTE DOREE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8315881252,2.398745665]).addTo(map); marker.bindPopup("12040 - PORTE DE CHARENTON") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8336548528,2.4134635765]).addTo(map); marker.bindPopup("12041 - BOIS DE VINCENNES") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.843949064,2.4150813948]).addTo(map); marker.bindPopup("12114 - PORTE DE SAINT MANDE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8464193693,2.4156366072]).addTo(map); marker.bindPopup("12115 - PORTE DE VINCENNES") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8162582572,2.344181923]).addTo(map); marker.bindPopup("13027 - MAZAGRAND COUBERTIN") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8173123004,2.3602184809]).addTo(map); marker.bindPopup("13033 - PORTE D'ITALIE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8226328422,2.3777384337]).addTo(map); marker.bindPopup("13047 - BOUTROUX VITRY") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8283698938,2.3844403546]).addTo(map); marker.bindPopup("13050 - QUAI PANHARD ET LEVASSOR") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8202267926,2.3722093097]).addTo(map); marker.bindPopup("13116 - PLACE DU DOCTEUR YERSIN") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8211387514,2.3787186066]).addTo(map); marker.bindPopup("13120 - VITRY DESAULT") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8249528729,2.3885806789]).addTo(map); marker.bindPopup("13121 - BRUNESEAU - QUAI D'IVRY") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8194013049,2.3433766105]).addTo(map); marker.bindPopup("14014 - STADE CHARLETY") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8212167897,2.3211735021]).addTo(map); marker.bindPopup("14020 - PORTE DE MONTROUGE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8236534803,2.3077668256]).addTo(map); marker.bindPopup("14023 - MALAKOFF PINARD") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8279894874,2.3056721065]).addTo(map); marker.bindPopup("14024 - RAYMOND LOSSERAND") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8253258701,2.3106706535]).addTo(map); marker.bindPopup("14106 - STADE DIDOT") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8239231685,2.3165733293]).addTo(map); marker.bindPopup("14115 - CITÉ UNIVERSITAIRE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8281749364,2.2925875226]).addTo(map); marker.bindPopup("15045 - PLAINE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8365372895,2.278717697]).addTo(map); marker.bindPopup("15056 - BALARD") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.833219823,2.2766303341]).addTo(map); marker.bindPopup("15125 - AQUABOULEVARD") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8779308172,2.278959825]).addTo(map); marker.bindPopup("16003 - ANDRE MAUROIS") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.83755526,2.2579725727]).addTo(map); marker.bindPopup("16042 - PORTE DE SAINT CLOUD") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8387133632,2.2521910605]).addTo(map); marker.bindPopup("16044 - STADE FRANCAIS") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8905862156,2.3034574087]).addTo(map); marker.bindPopup("17023 - AVENUE DE LA PORTE D'ASNIÈRES") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8888000206,2.2963199318]).addTo(map); marker.bindPopup("17028 - PORTE DE COURCELLE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8856174163,2.2907814113]).addTo(map); marker.bindPopup("17031 - PORTE DE CHAMPERET") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8865709934,2.288612345]).addTo(map); marker.bindPopup("17032 - ESPACE CHAMPERRET") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8777500334,2.2844443566]).addTo(map); marker.bindPopup("17042 - PORTE MAILLOT") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8817256597,2.2836826617]).addTo(map); marker.bindPopup("17104 - GENERAL KOENIG") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8834980819,2.2820155896]).addTo(map); marker.bindPopup("17105 - PALADINES") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8987600807,2.3295585175]).addTo(map); marker.bindPopup("17115 - PORTE DE SAINT OUEN") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8918344482,2.30014466]).addTo(map); marker.bindPopup("17116 - REIMS") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8974884597,2.3439964993]).addTo(map); marker.bindPopup("18032 - PORTE DE CLIGNANCOURT") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8991359901,2.3368934536]).addTo(map); marker.bindPopup("18035 - PORTE MONTMARTRE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8983850227,2.3608773492]).addTo(map); marker.bindPopup("18048 - PORTE DE LA CHAPELLE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.9011641134,2.3885907339]).addTo(map); marker.bindPopup("19010 - PORTE DE LA VILLETTE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8903419552,2.3978136422]).addTo(map); marker.bindPopup("19034 - PANTIN") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8799304155,2.400950502]).addTo(map); marker.bindPopup("19036 - HOPITAL ROBERT DEBRE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8766039189,2.4047696911]).addTo(map); marker.bindPopup("19037 - PORTE DES LILAS") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8890400681,2.3952894618]).addTo(map); marker.bindPopup("19046 - PORTE DE PANTIN") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8984900531,2.3861200082]).addTo(map); marker.bindPopup("19115 - PORTE DE LA VILLETTE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8817697939,2.403179368]).addTo(map); marker.bindPopup("19124 - ALEXANDER FLEMMING") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8540232845,2.4120580166]).addTo(map); marker.bindPopup("20009 - DOCTEUR DEJERINE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.877336,2.408573]).addTo(map); marker.bindPopup("20019 - MAQUIS DU VERCORS - PORTE DES LILAS") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8735490351,2.4110030359]).addTo(map); marker.bindPopup("20038 - LEON FRAPIE") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8644236486,2.4104111158]).addTo(map); marker.bindPopup("20115 - PORTE DE BAGNOLET") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8182337326,2.3208845326]).addTo(map); marker.bindPopup("21206 - PERI (MONTROUGE)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8250993292,2.2925003315]).addTo(map); marker.bindPopup("21707 - PASTEUR (VANVES)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.822528306,2.2986316541]).addTo(map); marker.bindPopup("22401 - DE GAULLE (MALAKOFF)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8218356479,2.3134586083]).addTo(map); marker.bindPopup("22403 - BROSSOLETTE (MALAKOFF)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8908603229,2.2950003701]).addTo(map); marker.bindPopup("23006 - GUESDE (LEVALLOIS)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8549113324,2.4187724298]).addTo(map); marker.bindPopup("31003 - PARIS (MONTREUIL)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8630254923,2.4156222042]).addTo(map); marker.bindPopup("31706 - CHATEAU (BAGNOLET)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8744577172,2.4151380923]).addTo(map); marker.bindPopup("31708 - NOISY (BAGNOLET)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.9064693732,2.358442054]).addTo(map); marker.bindPopup("32001 - PROUDHON (SAINT DENIS)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.9025922416,2.3305135648]).addTo(map); marker.bindPopup("34002 - PERI (SAINT OUEN)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.9013270326,2.3353012375]).addTo(map); marker.bindPopup("34003 - CURIE (SAINT OUEN)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.9063048061,2.343969017]).addTo(map); marker.bindPopup("34006 - MICHELET (SAINT OUEN)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8185,2.37427]).addTo(map); marker.bindPopup("42015 - JEAN FERRAT (IVRY)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8294214717,2.4016481056]).addTo(map); marker.bindPopup("42208 - PARIS 4 (CHARENTON)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+var marker = L.marker([48.8146624956,2.3613455027]).addTo(map); marker.bindPopup("42706 - SALENGRO (KREMLIN BICETRE)") .on('mouseover', function(e){ marker.openPopup(); }) .on('mouseout', function(e){ marker.closePopup(); });
+                          
+                </script>
+        </body>
+</html>
+
+
+
+    Status API Training Shop Blog About 
+
+    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
+

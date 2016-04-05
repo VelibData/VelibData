@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+        <head>
+                <title>Des quartiers favorisés ?</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+                <style>
+                        html { height: 100% }
+                        body { height: 100%; margin: 0; padding: 0 }
+                        #map { 
+                                width: 800px;
+                                height: 480px; 
+                        }
+                </style>
+
+                <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+                <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+                </head>
+                  <link rel="alternate" type="application/rss+xml" title="Stations Vélib - Disponibilités en temps réel" href="http://opendata.paris.fr/explore/dataset/stations-velib-disponibilites-en-temps-reel/rss/?dataChart=eyJxdWVyaWVzIjpbeyJjb25maWciOnsiZGF0YXNldCI6InN0YXRpb25zLXZlbGliLWRpc3BvbmliaWxpdGVzLWVuLXRlbXBzLXJlZWwiLCJvcHRpb25zIjp7InJlZmluZS5iYW5raW5nIjoiVHJ1ZSJ9fSwiY2hhcnRzIjpbeyJ0eXBlIjoibGluZSIsImZ1bmMiOiJBVkciLCJ5QXhpcyI6Im51bWJlciIsImNvbG9yIjoiIzY2YzJhNSJ9XSwieEF4aXMiOiJsYXN0X3VwZGF0ZSIsIm1heHBvaW50cyI6IiIsInRpbWVzY2FsZSI6ImhvdXIiLCJzb3J0IjoiIn1dLCJ0aW1lc2NhbGUiOiJ5ZWFyIn0%3D&amp;refine.banking=True&amp;location=16%2C48.83088%2C2.32043" />
+    <link rel="alternate" type="application/atom+xml" title="Stations Vélib - Disponibilités en temps réel" href="http://opendata.paris.fr/explore/dataset/stations-velib-disponibilites-en-temps-reel/atom/?dataChart=eyJxdWVyaWVzIjpbeyJjb25maWciOnsiZGF0YXNldCI6InN0YXRpb25zLXZlbGliLWRpc3BvbmliaWxpdGVzLWVuLXRlbXBzLXJlZWwiLCJvcHRpb25zIjp7InJlZmluZS5iYW5raW5nIjoiVHJ1ZSJ9fSwiY2hhcnRzIjpbeyJ0eXBlIjoibGluZSIsImZ1bmMiOiJBVkciLCJ5QXhpcyI6Im51bWJlciIsImNvbG9yIjoiIzY2YzJhNSJ9XSwieEF4aXMiOiJsYXN0X3VwZGF0ZSIsIm1heHBvaW50cyI6IiIsInRpbWVzY2FsZSI6ImhvdXIiLCJzb3J0IjoiIn1dLCJ0aW1lc2NhbGUiOiJ5ZWFyIn0%3D&amp;refine.banking=True&amp;location=16%2C48.83088%2C2.32043" />
+    
+    <link rel="stylesheet" type="text/css" href="/static/vendor/angular-bootstrap-colorpicker/css/colorpicker.css" />
+
+    <base href="/explore/dataset/stations-velib-disponibilites-en-temps-reel/">
+        
+    
+<script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-41201218-1', {'name': 'ods'});
+    
+    ga(function() {
+    var trackers = ga.getAll();
+    for (var i=0; i<trackers.length; ++i) {
+        var tracker = trackers[i];
+        if (tracker.get('name') == 'ods') {
+            tracker.set('dimension1', 'parisdata');
+        }
+        
+    }
+});
+
+</script>
+        <body>
+                <div id="map"></div>
+                <script type="text/javascript">
+                        var map = L.map('map').setView([48.856578, 2.351828], 13);
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>' }).addTo(map);
+                <!-- Stations du 1er arrondissement de Paris--> 
+                
+                        var marker = L.marker([48.8571, 2.3417]).addTo(map);
+                        marker.bindPopup("Ile de la Cite - Pont neuf")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });
+                              
+                        var marker = L.marker([48.8579, 2.347]).addTo(map);
+                        marker.bindPopup("Place du chatelet")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });
+                              
+                        var marker = L.marker([48.8592, 2.3476]).addTo(map);
+                        marker.bindPopup("Rivoli Saint Denis")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });
+                              
+                        var marker = L.marker([48.8599, 2.3468]).addTo(map);
+                        marker.bindPopup("Marguerite de Navarre")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });
+                              
+                        var marker = L.marker([48.8613, 2.3494]).addTo(map);
+                        marker.bindPopup("Les Halles - Sébastopol")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });     
+                              
+                        var marker = L.marker([48.8626, 2.3497]).addTo(map);
+                        marker.bindPopup("Grande Truanderie")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });      
+                              
+                        var marker = L.marker([48.8636, 2.3477]).addTo(map);
+                        marker.bindPopup("Etienne Marcel")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });  
+                              
+                        var marker = L.marker([48.8602, 2.3443]).addTo(map);
+                        marker.bindPopup("Pont Neuf - 14")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });     
+                              
+                        var marker = L.marker([48.8595, 2.3444]).addTo(map);
+                        marker.bindPopup("Pont Neuf")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });      
+                              
+                        var marker = L.marker([48.863, 2.3416]).addTo(map);
+                        marker.bindPopup("Bourse du commerce")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });      
+                              
+                        var marker = L.marker([48.8624, 2.3385]).addTo(map);
+                        marker.bindPopup("Saint Honoré")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.8637, 2.3341]).addTo(map);
+                        marker.bindPopup("Rivoli - Musée du Louvre")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.864, 2.3356]).addTo(map);
+                        marker.bindPopup("Place André Malraux")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); }); 
+                              
+                        var marker = L.marker([48.8665, 2.3344]).addTo(map);
+                        marker.bindPopup("Opéra Pyramides")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.8656, 2.3306]).addTo(map);
+                        marker.bindPopup("Saint Honoré")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.8648, 2.3294]).addTo(map);
+                        marker.bindPopup("Rivoli Tuileries")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });           
+                              
+                        var marker = L.marker([48.8667, 2.3283]).addTo(map);
+                        marker.bindPopup("Saint Honoré Vendôme")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.8663, 2.3252]).addTo(map);
+                        marker.bindPopup("Rivoli Concorde")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); }); 
+                              
+                        var marker = L.marker([48.8682, 2.3305]).addTo(map);
+                        marker.bindPopup("Rue de la paix")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.8635, 2.3348]).addTo(map);
+                        marker.bindPopup("Andre Malraux Musée du louvre")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });       
+                              
+                        var marker = L.marker([48.8638, 2.3427]).addTo(map);
+                        marker.bindPopup("Louvre Coq héron")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });         
+                              
+                        var marker = L.marker([48.8614, 2.3401]).addTo(map);
+                        marker.bindPopup("Temple de l'oratoire")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });         
+                              
+                        var marker = L.marker([48.8634, 2.3402]).addTo(map);
+                        marker.bindPopup("Colonel Driant")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });   
+                              
+                        var marker = L.marker([48.8622, 2.342]).addTo(map);
+                        marker.bindPopup("Berger")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });  
+                              
+                        var marker = L.marker([48.8641, 2.3476]).addTo(map);
+                        marker.bindPopup("Francaise")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });         
+                              
+                        var marker = L.marker([48.8668, 2.3344]).addTo(map);
+                        marker.bindPopup("Opéra Pyramides")
+                              .on('mouseover', function(e){ marker.openPopup(); })
+                              .on('mouseout', function(e){ marker.closePopup(); });      
+                              
+                            
+                </script>
+        </body>
+</html>
